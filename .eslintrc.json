@@ -1,0 +1,100 @@
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "eslint-plugin-import-helpers"
+  ],
+  "rules": {
+    "class-methods-use-this": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": ["error", "ignorePackages", { "ts": "never" }],
+    "camelcase": ["error", {
+      "properties": "never",
+      "ignoreDestructuring": true,
+      "allow": ["_id"]
+    }],
+    "no-console": "off",
+    "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
+    "template-curly-spacing": ["error", "always"],
+    "lines-between-class-membesrs": "off",
+    "max-len": ["error", { "code": 120 }],
+    "no-unused-expressions": "off",
+    "object-curly-spacing": ["error", "always"],
+    "object-curly-newline": ["error", {
+      "ObjectExpression": { "multiline": true, "minProperties": 5 },
+      "ObjectPattern": { "multiline": true, "minProperties": 5 },
+      "ImportDeclaration": { "multiline": true, "minProperties": 5 },
+      "ExportDeclaration": { "multiline": true, "minProperties": 5 }
+    }],
+    "arrow-parens": ["error", "as-needed"],
+    "@typescript-eslint/no-use-before-define": ["error", { "variables": false }],
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/no-unused-vars": ["error", {
+      "argsIgnorePattern": "next"
+    }],
+    "no-useless-constructor": "off",
+    "semi": "off",
+    "@typescript-eslint/semi": ["error"],
+
+    /**
+      "arrow-body-style": "off",
+      "no-underscore-dangle": ["error", { "allow": ["_id"] }],
+      "no-shadow": "off",
+      "no-param-reassign": "off",
+      "jsx-a11y/label-has-associated-control": "off",
+      "jsx-a11y/control-has-associated-label": "off",
+      "global-require": "off",
+      "import/no-named-as-default": "off",
+      "no-unused-vars": ["error", { "argsIgnorePatter": "^_" }],
+      "consistent-return": "off",
+      "no-useless-return": "off",
+      "no-debugger": "off",
+      "react/state-in-constructor": "off",
+      "no-multiple-empty-lines": ["error", { "max": 1, "maxBOF": 0, "maxEOF": 0 }],
+    */
+
+    // "template-curly-spacing": ["error", "always"],
+
+    "import-helpers/order-imports": [
+      "warn",
+      { // example configuration
+          "newlinesBetween": "always",
+          "groups": [
+            "module",
+            "/^@config/",
+            "/^@modules/",
+            "/^@shared/",
+            // "/controllers/",
+            // ["/models/", "/interfaces/", "/repositories/", "/services/"],
+            // "/middlewares/",
+            // "/config/",
+            // "/lib/",
+            ["parent", "sibling", "index"]
+          ],
+          "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+}
